@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 from pathlib import Path
 import os
 import django_heroku
+from django.contrib import messages
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -79,10 +80,10 @@ WSGI_APPLICATION = "expenseTrackerProject.wsgi.application"
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
-        "NAME": os.environ.get("DB_NAME"),
+        "NAME": "Expensesdb",
         "USER": "postgres",
         "PASSWORD": "admin",
-        "HOST": os.environ.get("DB_HOST"),
+        "HOST": "localhost",
         "PORT": "5432",
     }
 }
@@ -132,3 +133,13 @@ STATIC_ROOT = os.path.join(BASE_DIR, "static")
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 django_heroku.settings(locals())
+
+MESSAGE_TAGS = {
+    messages.ERROR: "danger",
+}
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = "smtp.gmail.com"
+EMAIL_HOST_USER = "expensify45@gmail.com"
+EMAIL_USE_TLS = True
+EMAIL_PORT = 587   
+EMAIL_HOST_PASSWORD = "pmnq erhp dfew dopp"
