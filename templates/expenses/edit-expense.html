@@ -6,7 +6,7 @@
             <li class="breadcrumb-item">
             <a href="{% url 'expenses' %}">Expenses</a>
             </li>
-            <li class="breadcrumb-item active" aria-current="page">Add Expense</li>
+            <li class="breadcrumb-item active" aria-current="page">Edit Expense</li>
         </ol>
     </nav>
 
@@ -14,7 +14,7 @@
 
     <div class="card">
         <div class="card-body">
-            <form action="{% url 'add-expenses' %}" method="post">
+            <form action="{% url 'expense-edit' expense.id %}" method="post">
                 {% include 'partials/_messages.html' %}
                 {% csrf_token %}
                 <div class="form-group">
@@ -29,6 +29,7 @@
                     <label for="">Category</label>
                     <select name="category" class="form-control">
                         {% for category in categories %}
+                        <option selected name="category" value="{{values.category}}">{{values.category}}</option>
                         <option name="category" value="{{category.name}}">{{category.name}}</option>
                         {% endfor %}
                     </select>
@@ -38,7 +39,7 @@
                     <input type="date" name="expense_date" class="form-control form-control-sm">
                 </div>
 
-                <input type="submit" value="Submit" class="btn btn-primary btn-primary-sm" />
+                <input type="submit" value="Save" class="btn btn-primary btn-primary-sm" />
             </form>
         </div>
     </div>    
