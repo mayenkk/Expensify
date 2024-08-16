@@ -67,7 +67,7 @@ usernameField.addEventListener('keyup', (e) => {
             } else {
                 submitBtn.removeAttribute('disabled');
             }
-        })
+        });
     }
 
 });
