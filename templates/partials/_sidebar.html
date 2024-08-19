@@ -14,9 +14,9 @@
         </a>
       </li>
       <li class="nav-item">
-        {% comment %} <a class="nav-link" href="{% url 'income' %}">
+        <a class="nav-link" href="{% url 'income' %}">
           Income
-        </a> {% endcomment %}
+        </a>
       </li>
     </ul>
 
@@ -32,19 +32,19 @@
         <span data-feather="plus-circle"></span>
       </a>
     </h6>
-    {% comment %} <ul class="nav flex-column mb-2">
+    <ul class="nav flex-column mb-2">
       <li class="nav-item">
         <a class="nav-link" href="{% url 'stats'%}">
           Expenses Summary
         </a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">
+      {% comment %} <li class="nav-item">
+        <a class="nav-link" href="{% url 'income-stats' %}">
           <span data-feather="file-text"></span>
           Income Summary
         </a>
-      </li>
-    </ul> {% endcomment %}
+      </li> {% endcomment %}
+    </ul>
 
     <h6
       class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted"
